@@ -18,13 +18,13 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+**Language/Version**: Python 3.13+ (latest stable)
 
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+**Primary Dependencies**: [e.g., FastAPI, click, typer or NEEDS CLARIFICATION]
 
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+**Storage**: [if applicable, e.g., PostgreSQL, SQLite, files or N/A]
 
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
+**Testing**: pytest with pytest-cov, mutmut for mutation testing, mypy --strict, ruff
 
 **Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
 
@@ -40,7 +40,22 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+### Required Quality Gates
+
+- [ ] 100% test coverage (pytest-cov)
+- [ ] 100% mutation testing score (mutmut)
+- [ ] Zero mypy errors (--strict mode)
+- [ ] Zero ruff warnings
+- [ ] Architecture tests passing (module boundaries, dependency rules)
+- [ ] All type hints complete (no Any without justification)
+- [ ] All dependencies justified and minimal
+
+### Architecture Requirements
+
+- [ ] Layered architecture enforced (no forbidden imports)
+- [ ] Domain layer independent of presentation/infrastructure
+- [ ] Dependency inversion respected
+- [ ] Package structure matches design
 
 ## Project Structure
 
